@@ -1,6 +1,7 @@
 package com.adamtomaszczyk.springpetclinic.bootstrap;
 
 import com.adamtomaszczyk.springpetclinic.model.Owner;
+import com.adamtomaszczyk.springpetclinic.model.Pet;
 import com.adamtomaszczyk.springpetclinic.model.PetType;
 import com.adamtomaszczyk.springpetclinic.model.Vet;
 import com.adamtomaszczyk.springpetclinic.services.OwnerService;
@@ -8,6 +9,8 @@ import com.adamtomaszczyk.springpetclinic.services.PetTypeService;
 import com.adamtomaszczyk.springpetclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -37,11 +40,34 @@ public class DataLoader implements CommandLineRunner {
         Owner owner1 = new Owner();
         owner1.setFirstName("Michael");
         owner1.setLastName("Weston");
+        owner1.setAddress("123 Brickerel");
+        owner1.setCity("Miami");
+        owner1.setTelephone("654234765");
+
+        Pet mikesDog = new Pet();
+        mikesDog.setName("Rosco");
+        mikesDog.setPetType(savedDogPetType);
+        mikesDog.setBirthDate(LocalDate.of(2015, 6, 15));
+        mikesDog.setOwner(owner1);
+
+        owner1.getPets().add(mikesDog);
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
         owner2.setFirstName("Fiona");
         owner2.setLastName("Glenanne");
+        owner2.setAddress("123 Brickerel");
+        owner2.setCity("Miami");
+        owner2.setTelephone("876345765");
+
+        Pet fionasCat = new Pet();
+        fionasCat.setName("Mimi");
+        fionasCat.setPetType(savedCatPetType);
+        fionasCat.setBirthDate(LocalDate.of(2020, 9, 1));
+        fionasCat.setOwner(owner2);
+
+        owner2.getPets().add(fionasCat);
+
         ownerService.save(owner2);
 
         System.out.println("Loaded owners...");
