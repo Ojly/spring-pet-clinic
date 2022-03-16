@@ -64,4 +64,9 @@ public class Pet extends BaseEntity {
     public void setVisits(Set<Visit> visits) {
         this.visits = visits;
     }
+
+    public void addVisit(Visit visit) {
+        visit.setPet(this);
+        this.visits.add(visit);
+    }
 }
