@@ -132,8 +132,6 @@ public class DataLoader implements CommandLineRunner {
         petService.save(mikesDog);
         petService.save(fionasCat);
 
-        Owner.builder().address("dsa").lastName("sdas").id(234L).build();
-
         System.out.println("Loaded visits...");
     }
 }
