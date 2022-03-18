@@ -23,7 +23,7 @@ public class OwnerController {
     }
 
     @RequestMapping( "/find")
-    public String notImplemented() {
+    public String findOwners() {
         return "notImplemented";
     }
 }
