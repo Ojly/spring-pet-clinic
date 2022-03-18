@@ -12,7 +12,6 @@ import java.util.Set;
 @Service
 @Profile("springdatajpa")
 public class OwnerSDJpaService implements OwnerService {
-
     private final OwnerRepository ownerRepository;
 
     public OwnerSDJpaService(OwnerRepository ownerRepository) {
